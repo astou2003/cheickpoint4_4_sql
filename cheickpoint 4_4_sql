@@ -1,0 +1,60 @@
+create database point_de_controle4_sql;
+use  point_de_controle4_sql;
+create table wine (
+numW_id integer primary key,
+category varchar (50) not null,
+order_year year not null,
+degree varchar(100) not null
+);
+select * from wine;
+
+create table producer (
+numP_id integer primary key,
+firstname varchar (150) not null,
+lastname varchar (200) not null,
+region varchar (250) not null
+);
+select * from producer;
+
+create table harvest (
+quantity_id integer primary key,
+numW_id int,
+numP_id int
+);
+select * from harvest;
+
+insert into wine (numW_id, category, order_year, degree) values
+(1, 'vin_blanc', '2024', '8'),
+(2, 'vin_rouge', '2023', '10'),
+(3, 'vin_rose', '2022', '15');
+select * from wine;
+
+insert into producer(numP_id, firstname, lastname, region) values
+(12, 'Julber', 'Faye', 'sousse'),
+(2, 'Alex', 'Mendy', 'casamance'),
+(3, 'Clement', 'Diatta',' mbour');
+select * from producer;
+
+insert into harvest(quantity_id, numW_id, numP_id) values
+(4, '1', '12'),
+(5, '2', '2'),
+(6, '3', '3');
+select * from harvest;
+
+select * from producer order by firstname;
+
+select * from producer where region = 'sousse';
+
+select sum(quantity_id) as total_quantity 
+from harvest 
+where numP_id = 12;
+
+
+
+
+
+
+
+
+  
+
